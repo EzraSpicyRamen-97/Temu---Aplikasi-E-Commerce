@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  
+  /* Brand Earth & Sage Palette */
+  --color-primary: #1E3A2B;
+  --color-primary-dark: #15291E;
+  --color-primary-light: #2C523D;
+  --color-sage-light: #E4ECE2;
+  --color-sage-bg: #EBF1EA;
+  --color-warm-bg: #F8F7F4;
+  --color-card-bg: #FFFFFF;
+  --color-border: #E8E6DF;
+  --color-text-main: #181A18;
+  --color-text-muted: #646864;
+  --color-promo: #D9483B;
+  --color-promo-bg: #FDE8E6;
+  --color-star: #F59E0B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #F0EFEA;
+  color: var(--color-text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F0EB;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1CFCA;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B6B4AF;
+}
+
+/* Typography Helpers */
+.font-brand {
+  font-family: var(--font-sans);
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+/* Mobile Frame Wrapper Simulation */
+.viewport-mobile {
+  max-width: 440px;
+  margin: 20px auto;
+  min-height: 940px;
+  background-color: #FFFFFF;
+  border-radius: 44px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.22), 0 0 0 12px #2A2E2B, 0 0 0 14px #424643;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.viewport-desktop {
+  max-width: 1240px;
+  margin: 20px auto;
+  min-height: 100vh;
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Top Device Status Bar */
+.mobile-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #181A18;
+  background-color: #FFFFFF;
+  z-index: 40;
+}
+
+/* Smooth Transitions */
+.smooth-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.smooth-hover:hover {
+  transform: translateY(-2px);
+}
+
+.smooth-hover:active {
+  transform: translateY(0);
+}
+
+/* Card Aspect Ratios & Image styling */
+.product-card-img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background-color: #F8F7F4;
+  transition: transform 0.3s ease;
+}
+
+.group:hover .product-card-img {
+  transform: scale(1.03);
+}
+
+/* Modal and Drawer Backdrop */
+.modal-backdrop {
+  background-color: rgba(18, 22, 19, 0.65);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Bottom Safe Area for iPhone */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+/* Badge animation */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.04); }
+}
+
+.badge-live {
+  animation: pulse-subtle 2s infinite ease-in-out;
+}
+
+/* Custom Accordion Chevron Animation */
+details[open] summary svg.chevron-arrow {
+  transform: rotate(180deg);
+}
+
+/* Timeline tracking style */
+.timeline-dot {
+  position: relative;
+}
+.timeline-dot::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 7px;
+  width: 2px;
+  height: calc(100% + 8px);
+  background-color: #E2E8F0;
+}
+.timeline-item:last-child .timeline-dot::before {
+  display: none;
+}
+
+/* Desktop Header vs Mobile Header */
+@media (min-width: 1024px) {
+  .viewport-desktop .desktop-navbar {
+    display: flex !important;
+  }
+  .viewport-desktop .mobile-only-header {
+    display: none !important;
+  }
+}
